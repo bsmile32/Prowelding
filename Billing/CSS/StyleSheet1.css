@@ -1,0 +1,545 @@
+﻿
+.width1 {
+    width: 1%;
+}
+
+.width2 {
+    width: 2%;
+}
+
+.width3 {
+    width: 3%;
+}
+
+.width4 {
+    width: 4%;
+}
+
+.width5 {
+    width: 5%;
+}
+
+.width6 {
+    width: 6%;
+}
+
+.width7 {
+    width: 7%;
+}
+
+.width8 {
+    width: 8%;
+}
+
+.width9 {
+    width: 9%;
+}
+
+.width10 {
+    width: 10%;
+}
+
+.width11 {
+    width: 11%;
+}
+
+.width12 {
+    width: 12%;
+}
+
+.width13 {
+    width: 13%;
+}
+
+.width14 {
+    width: 14%;
+}
+
+.width15 {
+    width: 15%;
+}
+
+.width16 {
+    width: 16%;
+}
+
+.width17 {
+    width: 17%;
+}
+
+.width18 {
+    width: 18%;
+}
+
+.width19 {
+    width: 19%;
+}
+
+.width20 {
+    width: 20%;
+}
+
+.width21 {
+    width: 21%;
+}
+
+.width22 {
+    width: 22%;
+}
+
+.width23 {
+    width: 23%;
+}
+
+.width24 {
+    width: 24%;
+}
+
+.width25 {
+    width: 25%;
+}
+
+.width26 {
+    width: 26%;
+}
+
+.width27 {
+    width: 27%;
+}
+
+.width28 {
+    width: 28%;
+}
+
+.width29 {
+    width: 29%;
+}
+
+.width30 {
+    width: 30%;
+}
+
+.width31 {
+    width: 31%;
+}
+
+.width32 {
+    width: 32%;
+}
+
+.width33 {
+    width: 33%;
+}
+
+.width34 {
+    width: 34%;
+}
+
+.width35 {
+    width: 35%;
+}
+
+.width36 {
+    width: 36%;
+}
+
+.width37 {
+    width: 37%;
+}
+
+.width38 {
+    width: 38%;
+}
+
+.width39 {
+    width: 39%;
+}
+
+.width40 {
+    width: 40%;
+}
+
+.width41 {
+    width: 41%;
+}
+
+.width42 {
+    width: 42%;
+}
+
+.width43 {
+    width: 43%;
+}
+
+.width44 {
+    width: 44%;
+}
+
+.width45 {
+    width: 45%;
+}
+
+.width46 {
+    width: 46%;
+}
+
+.width47 {
+    width: 47%;
+}
+
+.width48 {
+    width: 48%;
+}
+
+.width49 {
+    width: 49%;
+}
+
+.width50 {
+    width: 50%;
+}
+
+.width51 {
+    width: 51%;
+}
+
+.width52 {
+    width: 52%;
+}
+
+.width53 {
+    width: 53%;
+}
+
+.width54 {
+    width: 54%;
+}
+
+.width55 {
+    width: 55%;
+}
+
+.width56 {
+    width: 56%;
+}
+
+.width57 {
+    width: 57%;
+}
+
+.width58 {
+    width: 58%;
+}
+
+.width59 {
+    width: 59%;
+}
+
+.width60 {
+    width: 60%;
+}
+
+.width61 {
+    width: 61%;
+}
+
+.width62 {
+    width: 62%;
+}
+
+.width63 {
+    width: 63%;
+}
+
+.width64 {
+    width: 64%;
+}
+
+.width65 {
+    width: 65%;
+}
+
+.width66 {
+    width: 66%;
+}
+
+.width67 {
+    width: 67%;
+}
+
+.width68 {
+    width: 68%;
+}
+
+.width69 {
+    width: 69%;
+}
+
+.width70 {
+    width: 70%;
+}
+
+.width71 {
+    width: 71%;
+}
+
+.width72 {
+    width: 72%;
+}
+
+.width73 {
+    width: 73%;
+}
+
+.width74 {
+    width: 74%;
+}
+
+.width75 {
+    width: 75%;
+}
+
+.width76 {
+    width: 76%;
+}
+
+.width77 {
+    width: 77%;
+}
+
+.width78 {
+    width: 78%;
+}
+
+.width79 {
+    width: 79%;
+}
+
+.width80 {
+    width: 80%;
+}
+
+.width81 {
+    width: 81%;
+}
+
+.width82 {
+    width: 82%;
+}
+
+.width83 {
+    width: 83%;
+}
+
+.width84 {
+    width: 84%;
+}
+
+.width85 {
+    width: 85%;
+}
+
+.width86 {
+    width: 86%;
+}
+
+.width87 {
+    width: 87%;
+}
+
+.width88 {
+    width: 88%;
+}
+
+.width89 {
+    width: 89%;
+}
+
+.width90 {
+    width: 90%;
+}
+
+.width91 {
+    width: 91%;
+}
+
+.width92 {
+    width: 92%;
+}
+
+.width93 {
+    width: 93%;
+}
+
+.width94 {
+    width: 94%;
+}
+
+.width95 {
+    width: 95%;
+}
+
+.width96 {
+    width: 96%;
+}
+
+.width97 {
+    width: 97%;
+}
+
+.width98 {
+    width: 98%;
+}
+
+.width99 {
+    width: 99%;
+}
+
+.width100 {
+    width: 100%;
+}
+
+.dropdown-submenu {
+    position:relative;
+}
+.dropdown-submenu>.dropdown-menu {
+    top:0;
+    left:100%;
+    margin-top:-6px;
+    margin-left:-1px;
+    -webkit-border-radius:0 6px 6px 6px;
+    -moz-border-radius:0 6px 6px 6px;
+    border-radius:0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+    display:block;
+}
+.dropdown-submenu>a:after {
+    display:block;
+    content:" ";
+    float:right;
+    width:0;
+    height:0;
+    border-color:transparent;
+    border-style:solid;
+    border-width:5px 0 5px 5px;
+    border-left-color:#cccccc;
+    margin-top:5px;
+    margin-right:-10px;
+}
+.dropdown-submenu:hover>a:after {
+    border-left-color:#ffffff;
+}
+.dropdown-submenu.pull-left {
+    float:none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+    left:-100%;
+    margin-left:10px;
+    -webkit-border-radius:6px 0 6px 6px;
+    -moz-border-radius:6px 0 6px 6px;
+    border-radius:6px 0 6px 6px;
+}
+
+.panel-info-dark {
+  border-color: #000000 !important;
+}
+
+.panel-heading-dark {
+  color: #000000 !important;
+  background-color: #ff5757 !important;
+  border-color: #000000 !important;
+}
+
+.headerData {
+    padding: 10px 5px 5px 5px;
+    background-color: #ff7777;
+    text-align: right;
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    height: 50px;
+}
+
+.rowData {
+    padding: 10px 5px 5px 5px;
+    background-color: white;
+    text-align: left;
+    border-top: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    height: 50px;
+}
+
+.rowGrid {
+    padding: 10px 10px 10px 10px;
+    background-color: white;
+    text-align: left;
+    border-top: 1px solid #dddddd;
+    border-left: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+    border-bottom: 1px solid #dddddd;
+}
+
+.btn-search {
+  color: #000;
+  background-color: #ff5555;
+  border-color: #080808;
+}
+
+.btn-save {
+  color: #000;
+  background-color: #ff5555;
+  border-color: #505050;
+}
+
+.btn-close {
+  color: #000;
+  background-color: #ff5555;
+  border-color: #080808;
+}
+
+.dark {
+  color: #000000 !important;
+  background-color: #ff5555 !important;
+  border-color: #000000 !important;
+}
+
+.modalHeader{
+    font-weight: 700 !important;
+}
+
+.tab {
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.tab-dark {
+  color: #31708f;
+  background-color: #ff5757;
+  border-color: #bce8f1;
+}
+
+.tab-border {
+  /*color: #000000;
+  background-color: #d9edf7;*/
+  border-color: #000000;
+  padding-top: 10px;
+  padding-bottom: 15px;
+}
+
+.font-pager{
+    letter-spacing: 3px;
+}
+
+.dis-inline{
+    display:inline !important;
+}
+
+.paddingBot5{
+    padding-bottom: 5px;
+}

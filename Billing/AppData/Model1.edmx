@@ -1,0 +1,793 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BillingModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="MasAccount">
+          <Key>
+            <PropertyRef Name="AccountID" />
+          </Key>
+          <Property Name="AccountID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AccountName" Type="nvarchar" MaxLength="500" />
+          <Property Name="Address" Type="nvarchar" MaxLength="2000" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="MasAccountTransfer">
+          <Key>
+            <PropertyRef Name="AccountTransferID" />
+          </Key>
+          <Property Name="AccountTransferID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AccountName" Type="nvarchar" MaxLength="2000" />
+          <Property Name="BankName" Type="nvarchar" MaxLength="500" />
+          <Property Name="ISACTIVE" Type="nvarchar" MaxLength="1" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="MasCategory">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="500" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="MasDistributor">
+          <Key>
+            <PropertyRef Name="DistributorID" />
+          </Key>
+          <Property Name="DistributorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DistributorCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="DistributorName" Type="nvarchar" MaxLength="500" />
+          <Property Name="DistributorAddress" Type="nvarchar" MaxLength="2000" />
+          <Property Name="Active" Type="nvarchar" MaxLength="1" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="MasItem">
+          <Key>
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="ItemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemCode" Type="nvarchar" MaxLength="50" />
+          <Property Name="ItemName" Type="nvarchar" MaxLength="500" />
+          <Property Name="ItemDesc" Type="nvarchar" MaxLength="2000" />
+          <Property Name="ItemPrice" Type="float" />
+          <Property Name="Active" Type="nvarchar" MaxLength="1" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="UnitID" Type="int" />
+          <Property Name="ItemTypeID" Type="int" />
+          <Property Name="DistributorID" Type="int" />
+          <Property Name="MinRemaining" Type="int" />
+        </EntityType>
+        <EntityType Name="MasItemType">
+          <Key>
+            <PropertyRef Name="ItemTypeID" />
+          </Key>
+          <Property Name="ItemTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ItemTypeCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="ItemTypeName" Type="nvarchar" MaxLength="500" />
+          <Property Name="Active" Type="nvarchar" MaxLength="1" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="MasSender">
+          <Key>
+            <PropertyRef Name="SenderID" />
+          </Key>
+          <Property Name="SenderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SenderName" Type="nvarchar" MaxLength="500" />
+          <Property Name="Tel" Type="nvarchar" MaxLength="2000" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="MasUnit">
+          <Key>
+            <PropertyRef Name="UnitID" />
+          </Key>
+          <Property Name="UnitID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UnitCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="UnitName" Type="nvarchar" MaxLength="500" />
+          <Property Name="Active" Type="nvarchar" MaxLength="1" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="MasUserLogin">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Username" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+          <Property Name="Active" Type="nvarchar" MaxLength="1" />
+          <Property Name="LastLogin" Type="datetime" />
+        </EntityType>
+        <EntityType Name="MasValueList">
+          <Key>
+            <PropertyRef Name="FUNC" />
+            <PropertyRef Name="TYPES" />
+            <PropertyRef Name="CODE" />
+          </Key>
+          <Property Name="FUNC" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TYPES" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="CODE" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="2000" />
+          <Property Name="ISACTIVE" Type="nvarchar" MaxLength="1" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="TransSaleDetail">
+          <Key>
+            <PropertyRef Name="SaleDetailID" />
+          </Key>
+          <Property Name="SaleDetailID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SaleHeaderID" Type="int" Nullable="false" />
+          <Property Name="ItemID" Type="int" />
+          <Property Name="SerialNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="Amount" Type="float" />
+          <Property Name="Discount" Type="float" />
+          <Property Name="ItemPrice" Type="float" />
+          <Property Name="ItemDetail" Type="nvarchar" MaxLength="2000" />
+        </EntityType>
+        <EntityType Name="TransSaleHeader">
+          <Key>
+            <PropertyRef Name="SaleHeaderID" />
+          </Key>
+          <Property Name="SaleHeaderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="500" />
+          <Property Name="CustomerAddress" Type="nvarchar" MaxLength="2000" />
+          <Property Name="ReceivedDate" Type="datetime" />
+          <Property Name="ReceivedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="SaleNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="Active" Type="nvarchar" MaxLength="1" />
+          <Property Name="Remark" Type="nvarchar" MaxLength="4000" />
+          <Property Name="COD" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustomerAddress2" Type="nvarchar" MaxLength="2000" />
+          <Property Name="CustomerAddress3" Type="nvarchar" MaxLength="2000" />
+          <Property Name="WarrantyDate" Type="datetime" />
+          <Property Name="CustomerAddressTemp" Type="nvarchar" MaxLength="500" />
+          <Property Name="Tel" Type="nvarchar" MaxLength="50" />
+          <Property Name="CustomerNameTemp" Type="nvarchar" MaxLength="1000" />
+          <Property Name="DeliverAdd" Type="nvarchar" MaxLength="2000" />
+          <Property Name="DeliverAdd2" Type="nvarchar" MaxLength="2000" />
+          <Property Name="DeliverAdd3" Type="nvarchar" MaxLength="2000" />
+          <Property Name="DeliveryName" Type="nvarchar" MaxLength="500" />
+          <Property Name="CustomerDistrict" Type="nvarchar" MaxLength="500" />
+          <Property Name="CustomerCountry" Type="nvarchar" MaxLength="500" />
+          <Property Name="CustomerProvince" Type="nvarchar" MaxLength="500" />
+          <Property Name="CustomerPostalCode" Type="nvarchar" MaxLength="20" />
+          <Property Name="DeliverDistrict" Type="nvarchar" MaxLength="500" />
+          <Property Name="DeliverCountry" Type="nvarchar" MaxLength="500" />
+          <Property Name="DeliverProvince" Type="nvarchar" MaxLength="500" />
+          <Property Name="DeliverPostalCode" Type="nvarchar" MaxLength="20" />
+          <Property Name="BillType" Type="nvarchar" MaxLength="5" />
+          <Property Name="PayType" Type="nvarchar" MaxLength="5" />
+          <Property Name="ConsignmentNo" Type="nvarchar" MaxLength="255" />
+          <Property Name="SaleName" Type="nvarchar" MaxLength="500" />
+          <Property Name="AccountTransfer" Type="nvarchar" MaxLength="500" />
+          <Property Name="TimeTransfer" Type="nvarchar" MaxLength="500" />
+          <Property Name="Installment" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <Function Name="GetCustomerDist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="GetReportSaleItem" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DateFrom" Type="date" Mode="In" />
+          <Parameter Name="DateTo" Type="date" Mode="In" />
+          <Parameter Name="ItemCode" Type="nvarchar" Mode="In" />
+          <Parameter Name="Group" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GetReportSaleItemItemCode" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DateFrom" Type="date" Mode="In" />
+          <Parameter Name="DateTo" Type="date" Mode="In" />
+          <Parameter Name="ItemCode" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="GetTransSaleList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="DateFrom" Type="date" Mode="In" />
+          <Parameter Name="DateTo" Type="date" Mode="In" />
+        </Function>
+        <EntityContainer Name="BillingModelStoreContainer">
+          <EntitySet Name="MasAccount" EntityType="Self.MasAccount" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MasAccountTransfer" EntityType="Self.MasAccountTransfer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MasCategory" EntityType="Self.MasCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MasDistributor" EntityType="Self.MasDistributor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MasItem" EntityType="Self.MasItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MasItemType" EntityType="Self.MasItemType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MasSender" EntityType="Self.MasSender" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MasUnit" EntityType="Self.MasUnit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MasUserLogin" EntityType="Self.MasUserLogin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MasValueList" EntityType="Self.MasValueList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TransSaleDetail" EntityType="Self.TransSaleDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TransSaleHeader" EntityType="Self.TransSaleHeader" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BillingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="MasAccount">
+          <Key>
+            <PropertyRef Name="AccountID" />
+          </Key>
+          <Property Name="AccountID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="MasUserLogin">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="LastLogin" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="BillingEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="MasAccounts" EntityType="Self.MasAccount" />
+          <EntitySet Name="MasUserLogins" EntityType="Self.MasUserLogin" />
+          <EntitySet Name="MasItems" EntityType="BillingModel.MasItem" />
+          <EntitySet Name="TransSaleDetails" EntityType="BillingModel.TransSaleDetail" />
+          <FunctionImport Name="GetReportSaleItem" ReturnType="Collection(BillingModel.GetReportSaleItem_Result)">
+            <Parameter Name="DateFrom" Mode="In" Type="DateTime" />
+            <Parameter Name="DateTo" Mode="In" Type="DateTime" />
+            <Parameter Name="ItemCode" Mode="In" Type="String" />
+            <Parameter Name="Group" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="MasSenders" EntityType="BillingModel.MasSender" />
+          <FunctionImport Name="GetReportSaleItemItemCode" ReturnType="Collection(BillingModel.GetReportSaleItemItemCode_Result)">
+            <Parameter Name="DateFrom" Mode="In" Type="DateTime" />
+            <Parameter Name="DateTo" Mode="In" Type="DateTime" />
+            <Parameter Name="ItemCode" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="TransSaleHeaders" EntityType="BillingModel.TransSaleHeader" />
+          <FunctionImport Name="GetCustomerDist" ReturnType="Collection(BillingModel.GetCustomerDist_Result)" />
+          <EntitySet Name="MasCategories" EntityType="BillingModel.MasCategory" />
+          <EntitySet Name="MasValueLists" EntityType="BillingModel.MasValueList" />
+          <FunctionImport Name="GetTransSaleList" ReturnType="Collection(BillingModel.GetTransSaleList_Result1)">
+            <Parameter Name="DateFrom" Mode="In" Type="DateTime" />
+            <Parameter Name="DateTo" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <EntitySet Name="MasAccountTransfers" EntityType="BillingModel.MasAccountTransfer" />
+          <EntitySet Name="MasDistributors" EntityType="BillingModel.MasDistributor" />
+          <EntitySet Name="MasItemTypes" EntityType="BillingModel.MasItemType" />
+          <EntitySet Name="MasUnits" EntityType="BillingModel.MasUnit" />
+        </EntityContainer>
+        <EntityType Name="MasItem">
+          <Key>
+            <PropertyRef Name="ItemID" />
+          </Key>
+          <Property Name="ItemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ItemName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ItemDesc" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="ItemPrice" Type="Double" />
+          <Property Name="Active" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UnitID" Type="Int32" />
+          <Property Name="ItemTypeID" Type="Int32" />
+          <Property Name="DistributorID" Type="Int32" />
+          <Property Name="MinRemaining" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TransSaleDetail">
+          <Key>
+            <PropertyRef Name="SaleDetailID" />
+          </Key>
+          <Property Name="SaleDetailID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SaleHeaderID" Type="Int32" Nullable="false" />
+          <Property Name="ItemID" Type="Int32" />
+          <Property Name="SerialNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Amount" Type="Double" />
+          <Property Name="Discount" Type="Double" />
+          <Property Name="ItemPrice" Type="Double" />
+          <Property Name="ItemDetail" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="GetReportSaleItem_Result">
+          <Property Type="String" Name="ItemCode" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ItemName" Nullable="true" MaxLength="500" />
+          <Property Type="Double" Name="sumAmt" Nullable="true" />
+          <Property Type="Double" Name="ItemPrice" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="MasSender">
+          <Key>
+            <PropertyRef Name="SenderID" />
+          </Key>
+          <Property Name="SenderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SenderName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Tel" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <ComplexType Name="GetReportSaleItemItemCode_Result">
+          <Property Type="String" Name="ItemCode" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="SaleNumber" Nullable="true" MaxLength="50" />
+          <Property Type="Int32" Name="SaleHeaderID" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="TransSaleHeader">
+          <Key>
+            <PropertyRef Name="SaleHeaderID" />
+          </Key>
+          <Property Name="SaleHeaderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerAddress" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="ReceivedDate" Type="DateTime" Precision="3" />
+          <Property Name="ReceivedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SaleNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="Active" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="Remark" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="COD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerAddress2" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerAddress3" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="WarrantyDate" Type="DateTime" Precision="3" />
+          <Property Name="CustomerAddressTemp" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerNameTemp" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="DeliverAdd" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="DeliverAdd2" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="DeliverAdd3" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="DeliveryName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerDistrict" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerCountry" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerProvince" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerPostalCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="DeliverDistrict" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="DeliverCountry" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="DeliverProvince" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="DeliverPostalCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="BillType" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="PayType" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="ConsignmentNo" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="SaleName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="AccountTransfer" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="TimeTransfer" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Installment" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="GetTransSaleList_Result">
+          <Property Type="Int32" Name="SaleHeaderID" Nullable="false" />
+          <Property Type="String" Name="CustomerName" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="tel" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="ReceivedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="ReceivedBy" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="SaleNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ItemCode" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ItemName" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="ItemID" Nullable="true" />
+          <Property Type="Double" Name="Amount" Nullable="true" />
+          <Property Type="Double" Name="ItemPrice" Nullable="true" />
+          <Property Type="Double" Name="Discount" Nullable="true" />
+          <Property Type="String" Name="SerialNumber" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="GetCustomerDist_Result">
+          <Property Type="String" Name="CustomerName" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="CustomerAddress" Nullable="true" MaxLength="2000" />
+          <Property Type="String" Name="CustomerDistrict" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="CustomerCountry" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="CustomerProvince" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="CustomerPostalCode" Nullable="true" MaxLength="20" />
+          <Property Type="String" Name="Tel" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="DeliveryName" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="DeliverAdd" Nullable="true" MaxLength="2000" />
+          <Property Type="String" Name="DeliverDistrict" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="DeliverCountry" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="DeliverProvince" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="DeliverPostalCode" Nullable="true" MaxLength="20" />
+        </ComplexType>
+        <EntityType Name="MasCategory">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="MasValueList">
+          <Key>
+            <PropertyRef Name="FUNC" />
+            <PropertyRef Name="TYPES" />
+            <PropertyRef Name="CODE" />
+          </Key>
+          <Property Name="FUNC" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TYPES" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CODE" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="ISACTIVE" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <ComplexType Name="GetTransSaleList_Result1">
+          <Property Type="Int32" Name="SaleHeaderID" Nullable="false" />
+          <Property Type="String" Name="CustomerName" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="tel" Nullable="true" MaxLength="50" />
+          <Property Type="DateTime" Name="ReceivedDate" Nullable="true" Precision="23" />
+          <Property Type="String" Name="ReceivedBy" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="SaleNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ItemCode" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="ItemName" Nullable="true" MaxLength="500" />
+          <Property Type="Int32" Name="ItemID" Nullable="true" />
+          <Property Type="Double" Name="Amount" Nullable="true" />
+          <Property Type="Double" Name="ItemPrice" Nullable="true" />
+          <Property Type="Double" Name="Discount" Nullable="true" />
+          <Property Type="String" Name="SerialNumber" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="BillType" Nullable="true" MaxLength="5" />
+        </ComplexType>
+        <EntityType Name="MasAccountTransfer">
+          <Key>
+            <PropertyRef Name="AccountTransferID" />
+          </Key>
+          <Property Name="AccountTransferID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountName" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="BankName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="ISACTIVE" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="MasDistributor">
+          <Key>
+            <PropertyRef Name="DistributorID" />
+          </Key>
+          <Property Name="DistributorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DistributorCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="DistributorName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="DistributorAddress" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="MasItemType">
+          <Key>
+            <PropertyRef Name="ItemTypeID" />
+          </Key>
+          <Property Name="ItemTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ItemTypeCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ItemTypeName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="MasUnit">
+          <Key>
+            <PropertyRef Name="UnitID" />
+          </Key>
+          <Property Name="UnitID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UnitCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="UnitName" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Active" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BillingModelStoreContainer" CdmEntityContainer="BillingEntities">
+          <EntitySetMapping Name="MasAccounts">
+            <EntityTypeMapping TypeName="BillingModel.MasAccount">
+              <MappingFragment StoreEntitySet="MasAccount">
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MasUserLogins">
+            <EntityTypeMapping TypeName="BillingModel.MasUserLogin">
+              <MappingFragment StoreEntitySet="MasUserLogin">
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="LastLogin" ColumnName="LastLogin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MasItems">
+            <EntityTypeMapping TypeName="BillingModel.MasItem">
+              <MappingFragment StoreEntitySet="MasItem">
+                <ScalarProperty Name="MinRemaining" ColumnName="MinRemaining" />
+                <ScalarProperty Name="DistributorID" ColumnName="DistributorID" />
+                <ScalarProperty Name="ItemTypeID" ColumnName="ItemTypeID" />
+                <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="ItemPrice" ColumnName="ItemPrice" />
+                <ScalarProperty Name="ItemDesc" ColumnName="ItemDesc" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TransSaleDetails">
+            <EntityTypeMapping TypeName="BillingModel.TransSaleDetail">
+              <MappingFragment StoreEntitySet="TransSaleDetail">
+                <ScalarProperty Name="ItemDetail" ColumnName="ItemDetail" />
+                <ScalarProperty Name="ItemPrice" ColumnName="ItemPrice" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="SaleHeaderID" ColumnName="SaleHeaderID" />
+                <ScalarProperty Name="SaleDetailID" ColumnName="SaleDetailID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetReportSaleItem" FunctionName="BillingModel.Store.GetReportSaleItem">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BillingModel.GetReportSaleItem_Result">
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="sumAmt" ColumnName="sumAmt" />
+                <ScalarProperty Name="ItemPrice" ColumnName="ItemPrice" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="MasSenders">
+            <EntityTypeMapping TypeName="BillingModel.MasSender">
+              <MappingFragment StoreEntitySet="MasSender">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="SenderName" ColumnName="SenderName" />
+                <ScalarProperty Name="SenderID" ColumnName="SenderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetReportSaleItemItemCode" FunctionName="BillingModel.Store.GetReportSaleItemItemCode">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BillingModel.GetReportSaleItemItemCode_Result">
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="SaleNumber" ColumnName="SaleNumber" />
+                <ScalarProperty Name="SaleHeaderID" ColumnName="SaleHeaderID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="TransSaleHeaders">
+            <EntityTypeMapping TypeName="BillingModel.TransSaleHeader">
+              <MappingFragment StoreEntitySet="TransSaleHeader">
+                <ScalarProperty Name="Installment" ColumnName="Installment" />
+                <ScalarProperty Name="TimeTransfer" ColumnName="TimeTransfer" />
+                <ScalarProperty Name="AccountTransfer" ColumnName="AccountTransfer" />
+                <ScalarProperty Name="SaleName" ColumnName="SaleName" />
+                <ScalarProperty Name="ConsignmentNo" ColumnName="ConsignmentNo" />
+                <ScalarProperty Name="PayType" ColumnName="PayType" />
+                <ScalarProperty Name="BillType" ColumnName="BillType" />
+                <ScalarProperty Name="DeliverPostalCode" ColumnName="DeliverPostalCode" />
+                <ScalarProperty Name="DeliverProvince" ColumnName="DeliverProvince" />
+                <ScalarProperty Name="DeliverCountry" ColumnName="DeliverCountry" />
+                <ScalarProperty Name="DeliverDistrict" ColumnName="DeliverDistrict" />
+                <ScalarProperty Name="CustomerPostalCode" ColumnName="CustomerPostalCode" />
+                <ScalarProperty Name="CustomerProvince" ColumnName="CustomerProvince" />
+                <ScalarProperty Name="CustomerCountry" ColumnName="CustomerCountry" />
+                <ScalarProperty Name="CustomerDistrict" ColumnName="CustomerDistrict" />
+                <ScalarProperty Name="DeliveryName" ColumnName="DeliveryName" />
+                <ScalarProperty Name="DeliverAdd3" ColumnName="DeliverAdd3" />
+                <ScalarProperty Name="DeliverAdd2" ColumnName="DeliverAdd2" />
+                <ScalarProperty Name="DeliverAdd" ColumnName="DeliverAdd" />
+                <ScalarProperty Name="CustomerNameTemp" ColumnName="CustomerNameTemp" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="CustomerAddressTemp" ColumnName="CustomerAddressTemp" />
+                <ScalarProperty Name="WarrantyDate" ColumnName="WarrantyDate" />
+                <ScalarProperty Name="CustomerAddress3" ColumnName="CustomerAddress3" />
+                <ScalarProperty Name="CustomerAddress2" ColumnName="CustomerAddress2" />
+                <ScalarProperty Name="COD" ColumnName="COD" />
+                <ScalarProperty Name="Remark" ColumnName="Remark" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="SaleNumber" ColumnName="SaleNumber" />
+                <ScalarProperty Name="ReceivedBy" ColumnName="ReceivedBy" />
+                <ScalarProperty Name="ReceivedDate" ColumnName="ReceivedDate" />
+                <ScalarProperty Name="CustomerAddress" ColumnName="CustomerAddress" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="SaleHeaderID" ColumnName="SaleHeaderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetCustomerDist" FunctionName="BillingModel.Store.GetCustomerDist">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BillingModel.GetCustomerDist_Result">
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CustomerAddress" ColumnName="CustomerAddress" />
+                <ScalarProperty Name="CustomerDistrict" ColumnName="CustomerDistrict" />
+                <ScalarProperty Name="CustomerCountry" ColumnName="CustomerCountry" />
+                <ScalarProperty Name="CustomerProvince" ColumnName="CustomerProvince" />
+                <ScalarProperty Name="CustomerPostalCode" ColumnName="CustomerPostalCode" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="DeliveryName" ColumnName="DeliveryName" />
+                <ScalarProperty Name="DeliverAdd" ColumnName="DeliverAdd" />
+                <ScalarProperty Name="DeliverDistrict" ColumnName="DeliverDistrict" />
+                <ScalarProperty Name="DeliverCountry" ColumnName="DeliverCountry" />
+                <ScalarProperty Name="DeliverProvince" ColumnName="DeliverProvince" />
+                <ScalarProperty Name="DeliverPostalCode" ColumnName="DeliverPostalCode" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="MasCategories">
+            <EntityTypeMapping TypeName="BillingModel.MasCategory">
+              <MappingFragment StoreEntitySet="MasCategory">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MasValueLists">
+            <EntityTypeMapping TypeName="BillingModel.MasValueList">
+              <MappingFragment StoreEntitySet="MasValueList">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="CODE" ColumnName="CODE" />
+                <ScalarProperty Name="TYPES" ColumnName="TYPES" />
+                <ScalarProperty Name="FUNC" ColumnName="FUNC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetTransSaleList" FunctionName="BillingModel.Store.GetTransSaleList">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BillingModel.GetTransSaleList_Result1">
+                <ScalarProperty Name="SaleHeaderID" ColumnName="SaleHeaderID" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="tel" ColumnName="tel" />
+                <ScalarProperty Name="ReceivedDate" ColumnName="ReceivedDate" />
+                <ScalarProperty Name="ReceivedBy" ColumnName="ReceivedBy" />
+                <ScalarProperty Name="SaleNumber" ColumnName="SaleNumber" />
+                <ScalarProperty Name="ItemCode" ColumnName="ItemCode" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="ItemID" ColumnName="ItemID" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="ItemPrice" ColumnName="ItemPrice" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="SerialNumber" ColumnName="SerialNumber" />
+                <ScalarProperty Name="BillType" ColumnName="BillType" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="MasAccountTransfers">
+            <EntityTypeMapping TypeName="BillingModel.MasAccountTransfer">
+              <MappingFragment StoreEntitySet="MasAccountTransfer">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+                <ScalarProperty Name="BankName" ColumnName="BankName" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="AccountTransferID" ColumnName="AccountTransferID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MasDistributors">
+            <EntityTypeMapping TypeName="BillingModel.MasDistributor">
+              <MappingFragment StoreEntitySet="MasDistributor">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="DistributorAddress" ColumnName="DistributorAddress" />
+                <ScalarProperty Name="DistributorName" ColumnName="DistributorName" />
+                <ScalarProperty Name="DistributorCode" ColumnName="DistributorCode" />
+                <ScalarProperty Name="DistributorID" ColumnName="DistributorID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MasItemTypes">
+            <EntityTypeMapping TypeName="BillingModel.MasItemType">
+              <MappingFragment StoreEntitySet="MasItemType">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="ItemTypeName" ColumnName="ItemTypeName" />
+                <ScalarProperty Name="ItemTypeCode" ColumnName="ItemTypeCode" />
+                <ScalarProperty Name="ItemTypeID" ColumnName="ItemTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MasUnits">
+            <EntityTypeMapping TypeName="BillingModel.MasUnit">
+              <MappingFragment StoreEntitySet="MasUnit">
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Active" ColumnName="Active" />
+                <ScalarProperty Name="UnitName" ColumnName="UnitName" />
+                <ScalarProperty Name="UnitCode" ColumnName="UnitCode" />
+                <ScalarProperty Name="UnitID" ColumnName="UnitID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
