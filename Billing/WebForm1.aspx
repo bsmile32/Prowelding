@@ -44,7 +44,7 @@
                 </div>
             </div>
             <div class="col-lg-2">
-                <span class="fa fa-facebook-official"> Facebooks</span>
+                <span class="fa fa-facebook-official"> Facebook</span>
                 
             </div>
             <div class="col-lg-4">
