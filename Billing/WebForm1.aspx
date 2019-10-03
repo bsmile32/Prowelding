@@ -45,7 +45,7 @@
             </div>
             <div class="col-lg-2">
                 <span class="fa fa-facebook-official"> Facebook</span>
-                Testtttttttttttttttttttttttttt ddsfgsdgsfdg
+                Testtttttttttttttttttttttttttt ddsfgsdgsfdg ddsfgsdgsfdgddsfgsdgsfdgddsfgsdgsfdgddsfgsdgsfdg
             </div>
             <div class="col-lg-4">
                 <i class="fa fa-save"></i> Export
